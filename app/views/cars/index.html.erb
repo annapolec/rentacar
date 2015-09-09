@@ -1,0 +1,14 @@
+<h1>Listing cars</h1>
+
+<% @cars.each do |car| %>
+	<ul>
+		<li><%= car.id %></li>
+		<li><%= car.name %></li>
+		<li><%= car.description %></li>
+		<li><%= car.category %></li>
+		<li><%= car.price %></li>
+		<li><%= link_to "Show", car_path(car) %></li>
+		<li><%= link_to "Edit", edit_car_path(car) %></li>
+		<li><%= link_to "Destroy", car_path(car), method: :delete %></li>
+	</ul>
+<% end %>
