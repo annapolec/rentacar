@@ -1,13 +1,17 @@
-<h1>All rentings</h1>
+<h1>Listing rentings</h1>
 
 <% @rentings.each do |renting| %>
-	<ul>
-		<li><%= renting.start_date %></li>
-		<li><%= renting.finish_date %></li>
-		<li><%= renting.car_id %></li>
-		<li><%= renting.client %></li>
-		<li><%= renting.cost %></li>
-		<li><%= link_to "Cancel", renting_path(renting), method: :delete %></li>
+	<h2>Renting #<%= renting.id %></h2>
+	<ul class="listing">
+		<li>Client: <%= renting.client %></li>
+		<li>From <%= renting.start_date %> to <%= renting.finish_date %></li>
+		<li><%= link_to "Car # #{renting.car_id}", car_path(renting.car) %></li>		
+		<li>Total cost: <%= renting.cost %></li>
+		<li>
+			<%= link_to "Cancel", renting_path(renting), method: :delete, class: "btn btn-default btn-sm" %>
+		</li>
 	</ul>
 <% end %>
+
+
 

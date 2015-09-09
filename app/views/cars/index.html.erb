@@ -1,14 +1,19 @@
 <h1>Listing cars</h1>
 
 <% @cars.each do |car| %>
-	<ul>
-		<li><%= car.id %></li>
-		<li><%= car.name %></li>
-		<li><%= car.description %></li>
-		<li><%= car.category %></li>
-		<li><%= car.price %></li>
-		<li><%= link_to "Show", car_path(car) %></li>
-		<li><%= link_to "Edit", edit_car_path(car) %></li>
-		<li><%= link_to "Destroy", car_path(car), method: :delete %></li>
-	</ul>
+		<h2><%= link_to car.name, car %></h2>
+		<ul class="listing">
+			<li>category: <%= car.category %></li>
+			<li>price per day: <%= car.price %></li>
+			<li><%= car.description %></li>
+		</ul>
+		
+		<div class="btn-group">
+			<%= link_to "Show", car_path(car), class: 'btn btn-default btn-sm' %>
+			<%= link_to "Edit", edit_car_path(car), class: 'btn btn-default btn-sm'  %>
+			<%= link_to "Destroy", car_path(car), method: :delete, class: 'btn btn-default btn-sm'  %>
+		</div>
 <% end %>
+
+
+

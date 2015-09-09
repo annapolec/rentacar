@@ -1,3 +1,12 @@
-<h1>#<%= @car.id %> <%= @car.name %></h1>
-<%= @car.price %>
-<%= @car.description %>
+<h2><%= @car.name %></h2>
+<ul class="listing">
+	<li>category: <%= @car.category %></li>
+	<li>price per day: <%= @car.price %></li>
+	<li><%= @car.description %></li>
+</ul>
+
+<div class="btn-group">
+	<%= link_to "Show", car_path(@car), class: 'btn btn-default btn-sm' %>
+	<%= link_to "Edit", edit_car_path(@car), class: 'btn btn-default btn-sm'  %>
+	<%= link_to "Destroy", car_path(@car), method: :delete, class: 'btn btn-default btn-sm'  %>
+</div>
