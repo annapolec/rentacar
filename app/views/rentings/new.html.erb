@@ -1,0 +1,18 @@
+<h1>Rent a Car</h1>
+	<%= form_for @renting, url: { action: :create } do |f| %>
+
+		<%= f.label :client %>
+		<%= f.text_field :client %>
+
+		<%= f.label :from %>
+		<%= f.date_select :start_date %>
+
+		<%= f.label :to %>
+		<%= f.date_select :finish_date %>
+
+
+		<%= f.label :car %>
+		<%= f.text_field :car_id %>
+
+		<%= f.submit %>
+	<% end %>

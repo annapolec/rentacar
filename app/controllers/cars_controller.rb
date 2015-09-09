@@ -5,9 +5,9 @@ class CarsController < ApplicationController
 
 	def create
 		@car = Car.create(car_params)
-		@car.price = assigned_price(@car.category)
+		@car.assign_price
 		if @car.save
-			flash[:success] = "Car successfullu created."
+			flash[:success] = "Car successfully created."
 			redirect_to root_path
 		else
 			render 'new'
@@ -25,7 +25,8 @@ class CarsController < ApplicationController
 	def update
 		@car = Car.find(params[:id])
 		if @car.update_attributes(car_params)
-			@car.update_attribute(:price, assigned_price(@car.category))
+			@car.assign_price
+			@car.save
 			flash[:success] = "Car updated."
 			redirect_to root_path
 		else
@@ -48,13 +49,6 @@ class CarsController < ApplicationController
 	private
 	def car_params
 		params.require(:car).permit(:name, :description, :category)
-	end
-
-	def assigned_price(category)
-		prices = {	"A" => 100, 
-								"B" => 75,
-								"C" => 50 }
-		prices[category]
 	end
 end
 

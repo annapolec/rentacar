@@ -1,0 +1,13 @@
+<h1>All rentings</h1>
+
+<% @rentings.each do |renting| %>
+	<ul>
+		<li><%= renting.start_date %></li>
+		<li><%= renting.finish_date %></li>
+		<li><%= renting.car_id %></li>
+		<li><%= renting.client %></li>
+		<li><%= renting.cost %></li>
+		<li><%= link_to "Cancel", renting_path(renting), method: :delete %></li>
+	</ul>
+<% end %>
+
