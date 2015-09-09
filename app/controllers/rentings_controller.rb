@@ -1,4 +1,5 @@
 class RentingsController < ApplicationController
+	before_filter :authenticate_user!
 	def new
 		@renting = Renting.new
 	end
