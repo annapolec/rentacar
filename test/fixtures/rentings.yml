@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: MyString
+  start_date: 2015-09-09
+  finish_date: 2015-09-09
+  car_id: 1
+  cost: 1
+
+two:
+  client: MyString
+  start_date: 2015-09-09
+  finish_date: 2015-09-09
+  car_id: 1
+  cost: 1
