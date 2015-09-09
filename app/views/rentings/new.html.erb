@@ -1,5 +1,6 @@
 <h1>Rent a Car</h1>
 <%= form_for @renting, url: { action: :create } do |f| %>
+	<%= render 'shared/errors_messages', object: f.object %>
 	<div class="form-group">
 		<%= f.label :client, class: 'col-md-2 control-label' %>
 		<div class="col-md-10">
