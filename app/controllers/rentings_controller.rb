@@ -4,7 +4,7 @@ class RentingsController < ApplicationController
 		@renting = Renting.new
 	end
 
-	def create
+	def create		
 		@car = Car.find(params[:renting][:car_id])
 		@renting = @car.rentings.create(rentings_params)
 		@renting.assign_cost
