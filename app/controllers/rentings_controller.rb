@@ -4,9 +4,14 @@ class RentingsController < ApplicationController
 		@renting = Renting.new
 	end
 
+<<<<<<< HEAD
 	def create
 		binding.pry
 		@car = Car.find(params[:renting][:car_id])			
+=======
+	def create		
+		@car = Car.find(params[:renting][:car_id])
+>>>>>>> Validations
 		@renting = @car.rentings.create(rentings_params)
 		@renting.assign_cost
 		if @renting.save

@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'date_validator'
 
 
 group :doc do
