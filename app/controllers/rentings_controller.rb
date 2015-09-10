@@ -5,7 +5,6 @@ class RentingsController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@car = Car.find(params[:renting][:car_id])			
 		@renting = @car.rentings.create(rentings_params)
 		@renting.assign_cost
