@@ -19,7 +19,7 @@ class CarsController < ApplicationController
     if @car.save
       name = @car.name
       redirect_to cars_path
-      flash[:notice] = "#{name} created"
+      flash[:success] = "#{name} created"
     else
       render 'new'
       flash[:error] = "Unable to create car. Please try again"
@@ -40,7 +40,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @car.update car_params
     if @car.save
-      flash[:notice] = "Your car was updated succesfully"
+      flash[:success] = "Your car was updated succesfully"
       redirect_to root_path
     else
       render 'edit'
