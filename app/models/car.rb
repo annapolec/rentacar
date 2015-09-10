@@ -7,4 +7,8 @@ class Car < ActiveRecord::Base
 								"C" => 50 }
 		self.price = prices[self.category]
 	end
+
+	def history_of_rentings
+		self.rentings.order(:start_date)
+	end
 end
