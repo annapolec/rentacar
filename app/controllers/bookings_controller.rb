@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
     @booking =  @car.bookings.create(booking_params)
     @booking.assign_cost
     if @booking.save
-      flash[:success] = "Reservation has been made."
       redirect_to car_booking_path(@car, @booking)
     else
       render 'cars/show'
@@ -30,8 +29,8 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id]).destroy
     if @booking.destroy
-      flash[:notice] = "Booking: #{@booking.start_time.strftime('%e %b %Y %H:%M%p')} to #{@booking.end_time.strftime('%e %b %Y %H:%M%p')} deleted"
-      redirect_to car_bookings_path(@car)
+      flash[:success] = "Booking #{@booking.car.name} by #{@booking.client} has been canceled"
+      redirect_to car_path(@car)
     else
       render 'index'
     end

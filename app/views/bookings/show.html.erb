@@ -7,4 +7,4 @@
 	<li>cost: <%= @booking.cost %></li>
 </ul>
 
- 
+<%= link_to "Cancel", car_booking_path(@car, @booking), method: :delete, class: 'btn btn-default' %>

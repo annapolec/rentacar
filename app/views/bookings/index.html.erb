@@ -1,22 +1,12 @@
-<h3> Bookings for <%= @car.name %></h3>
-<table class="bookings_table">
-  <tr>
-    <th>Start</th>
-    <th>End</th>
-  </tr>
-  
-  <% @bookings.each do |booking| %>
-  <tr>
-    <td>
-      <%= booking.start_time.strftime('%e %b %Y %H:%M%p') %>
-    </td>
-    <td>
-      <%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
-    </td>
-    <td><%= link_to "Delete", car_booking_path(@car, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
-    </td>
-    <td><%= link_to "Edit", edit_car_booking_path(@car, booking) %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+<h3> Bookings for <%= @car.name %></h3>  
+<% @bookings.each do |booking| %>
+  <ul class="listing">
+    <li><%= booking.client %></li>
+    <li><%= booking.start_time %> - <%= booking.end_time %></li>
+  </ul>
+  <div class="btn-group">
+    <%= link_to "Show", car_booking_path(@car, booking), class: 'btn btn-default btn-sm' %>
+    <%= link_to "Cancel", car_booking_path(@car, booking), method: :delete, class: 'btn btn-default btn-sm' %>    
+  </div>
+<% end %>
+
