@@ -1,11 +1,7 @@
 <h1>Edit #<%= @car.id %> car</h1>
 <%= form_for @car, url: { action: :update } do |f| %>
-<<<<<<< HEAD
 	<%= render 'shared/errors_messages', object: f.object %>
-=======
-<%= render 'shared/error_messages', object: f.object %>
->>>>>>> Add-bookable
-	<div class="form-group">
+<div class="form-group">
 		<%= f.label :name, class: 'col-md-2 control-label' %>
 		<div class="col-md-10">
 			<%= f.text_field :name, class: 'form-control' %>

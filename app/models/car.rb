@@ -15,15 +15,4 @@ class Car < ActiveRecord::Base
 								"C" => 50 }
 		self.price = prices[self.category]
 	end
-<<<<<<< HEAD
 
-	def history_of_rentings
-<<<<<<< HEAD
-		self.rentings.order(:start_date)
-=======
-		self.rentings
->>>>>>> Validations
-	end
-=======
->>>>>>> Add-bookable
-end
