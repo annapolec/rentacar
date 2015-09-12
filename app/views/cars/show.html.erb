@@ -9,7 +9,6 @@
 
 <div class="container">
 	<div class="btn-group">
-		<%= link_to "Show", car_path(@car), class: 'btn btn-default btn-sm' %>
 		<%= link_to "Edit", edit_car_path(@car), class: 'btn btn-default btn-sm'  %>
 		<%= link_to "Destroy", car_path(@car), method: :delete, class: 'btn btn-default btn-sm'  %>
 	</div>
@@ -17,15 +16,16 @@
 <hr>
 
 <div class="container">
-	<h2>History of rentings</h2>
-	<% @car.history_of_rentings.each do |renting| %>
-		<ul class="listing">
-			<li><%= renting.client %></li>
-			<li>from <%= renting.start_date %> to <%= renting.finish_date %></li>
-		</ul>
-	<% end %>
+	<h2>Book it</h2>
+	<%= render 'shared/booking_form' %>
 </div>
 
+<div class="calendar_container">
+  <div id="calendar">
+  </div>
+</div>
+
+<<<<<<< HEAD
 <div class="container">
 <<<<<<< HEAD
 	<%= render 'shared/renting_form_for_a_car' %>
@@ -34,3 +34,5 @@
 	<%= @car.history_of_rentings.each do |renting| %>
 	
 >>>>>>> Validations
+=======
+>>>>>>> Add-bookable

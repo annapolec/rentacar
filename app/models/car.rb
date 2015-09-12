@@ -1,5 +1,6 @@
 class Car < ActiveRecord::Base
 	has_many :rentings
+	has_many :bookings
 
 	validates :name, :description, :category, :price, presence: true
 	validates :name, length: { maximum: 30 }
@@ -14,6 +15,7 @@ class Car < ActiveRecord::Base
 								"C" => 50 }
 		self.price = prices[self.category]
 	end
+<<<<<<< HEAD
 
 	def history_of_rentings
 <<<<<<< HEAD
@@ -22,4 +24,6 @@ class Car < ActiveRecord::Base
 		self.rentings
 >>>>>>> Validations
 	end
+=======
+>>>>>>> Add-bookable
 end

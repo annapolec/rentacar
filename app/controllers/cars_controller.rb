@@ -1,56 +1,57 @@
 class CarsController < ApplicationController
-	before_filter :authenticate_user!, except: [:index]
-	def new	
-		@car = Car.new	
-	end
+  before_filter :authenticate_user!
 
-	def create
-		@car = Car.create(car_params)
-		@car.assign_price
-		if @car.save
-			flash[:success] = "Car successfully created."
-			redirect_to root_path
-		else
-			render 'new'
-		end
-	end
+  def index
+    @cars = Car.all
+  end
 
-	def index
-		@cars = Car.all
-	end
+  def show
+    @car = Car.find(params[:id])
+    @booking = @car.bookings.build
+  end
 
-	def edit
-		@car = Car.find(params[:id])
-	end
+  def new
+    @car = Car.new
+  end
 
-	def update
-		@car = Car.find(params[:id])
-		if @car.update_attributes(car_params)
-			@car.assign_price
-			@car.save
-			flash[:success] = "Car updated."
-			redirect_to root_path
-		else
-			render 'edit'
-		end
-	end
+  def create
+    @car = Car.create(car_params)
+    @car.assign_price
+    if @car.save
+      name = @car.name
+      redirect_to cars_path
+      flash[:success] = "#{name} created"
+    else
+      render 'new'
+      flash[:error] = "Unable to create car. Please try again"
+    end
+  end
 
-	def show
-		@car = Car.find(params[:id])
-		@renting = @car.rentings.build
-	end
+  def destroy
+    @car = Car.find(params[:id])
+    @car.destroy
+    redirect_to cars_path
+  end
 
-	def destroy
-		@car = Car.find(params[:id])
-		if @car.destroy
-			flash[:success] = "Car destroyed"
-			redirect_to cars_path
-		end
-	end
+  def edit
+    @car = Car.find(params[:id])
+  end
 
-	private
-	def car_params
-		params.require(:car).permit(:name, :description, :category)
-	end
+  def update
+    @car = Car.find(params[:id])
+    @car.update car_params
+    if @car.save
+      flash[:success] = "Your car was updated succesfully"
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
+  private
+
+    def car_params
+      params.require(:car).permit(:name, :description, :category, :delete)
+    end
+
 end
-
