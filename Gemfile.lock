@@ -32,6 +32,8 @@ GEM
       rails_12factor
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -133,6 +135,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.7)
 
 PLATFORMS
   ruby
@@ -140,6 +143,7 @@ PLATFORMS
 DEPENDENCIES
   bookable (~> 0.0.52)
   bootstrap-sass (~> 3.2.0)
+  bootstrap-will_paginate
   coffee-rails (~> 4.0.0)
   date_validator
   devise
