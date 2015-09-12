@@ -16,12 +16,12 @@
 <hr>
 
 <div class="container">
-	<h2>History of rentings</h2>
-	<% @car.history_of_rentings.each do |renting| %>
-		<ul class="listing">
-			<li><%= renting.client %></li>
-			<li>from <%= renting.start_date %> to <%= renting.finish_date %></li>
-		</ul>
-	<% end %>
+	<h2>Book it</h2>
+	<%= render 'shared/booking_form' %>
+</div>
+
+<div class="calendar_container">
+  <div id="calendar">
+  </div>
 </div>
 

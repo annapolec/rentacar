@@ -9,14 +9,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new(car_id: @car.id)
+    @booking = @car.bookings.build
   end
 
   def create
-    @booking =  Booking.new(params[:booking].permit(:car_id, :start_time, :length))
-    @booking.car = @car
+    @booking =  @car.bookings.build(booking_params)
     if @booking.save
-      redirect_to car_bookings_path(@car, method: :get)
+      flash[:success] = "Mr/Mrs #{@booking.client} your reservation has been made. 
+                        \n #{@booking.start_time} - #{@booking.end_time}"
+      redirect_to car_path(@car)
     else
       render 'new'
     end
@@ -58,6 +59,10 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def booking_params
+    params.require(:booking).permit(:start_time, :length, :client, :car_id)
+  end
 
   def save booking
     if @booking.save
