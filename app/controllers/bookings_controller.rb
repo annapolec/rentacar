@@ -13,13 +13,13 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking =  @car.bookings.build(booking_params)
+    @booking =  @car.bookings.create(booking_params)
+    @booking.assign_cost
     if @booking.save
-      flash[:success] = "Mr/Mrs #{@booking.client} your reservation has been made. 
-                        \n #{@booking.start_time} - #{@booking.end_time}"
-      redirect_to car_path(@car)
+      flash[:success] = "Reservation has been made."
+      redirect_to car_booking_path(@car, @booking)
     else
-      render 'new'
+      render 'cars/show'
     end
   end
 

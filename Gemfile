@@ -29,10 +29,12 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
+
 gem 'date_validator'
 gem 'bookable', '~> 0.0.52'
 gem 'bootstrap-will_paginate'
-
+gem 'date_validator'
+gem 'bookable', '~> 0.0.52'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

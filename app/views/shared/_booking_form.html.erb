@@ -1,14 +1,41 @@
 <%= form_for ([@car, @booking]) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
-  <p>
-    <%= f.label 'start_time', 'Start time' %>
-    <%= f.datetime_select :start_time, { minute_step: 15 } %>
-  </p>
-  <p>
-    <%= f.label 'length', 'Length of booking in hours' %>
-    <%= f.number_field 'length', min: 24 %>
-  </p>
-  <%= f.submit 'Submit' %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation"> 
+      <ul>
+      <% @booking.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :client, class: 'col-md-2 control-label' %>
+    <div class="col-md-10">    
+      <%= f.text_field :client %>
+    </div>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :start_time, class: 'col-md-2 control-label' %>
+  	<div class="col-md-10">    
+      <%= f.datetime_select :start_time, discard_hour: true, discard_minute: true, 
+      											start_year: Date.today.year %>
+    </div>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :number_of_days, class: 'col-md-2 control-label' %>
+  	<div class="col-md-10">    
+      <%= f.number_field :length, min: 1 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+  	<div class="col-md-offset-2 col-md-10">
+    	<%= f.submit "Book it" %>
+    </div>
+  </div>
 <% end %> 
 
 

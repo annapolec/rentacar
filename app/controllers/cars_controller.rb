@@ -23,7 +23,6 @@ class CarsController < ApplicationController
       flash[:success] = "#{name} created"
     else
       render 'new'
-      flash[:error] = "Unable to create car. Please try again"
     end
   end
 
