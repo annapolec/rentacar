@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   respond_to :html, :xml, :json
-  
+  before_filter :authenticate_user!
   before_action :find_car
 
   def index
