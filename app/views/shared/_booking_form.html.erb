@@ -2,7 +2,7 @@
 <%= render 'shared/error_messages', object: f.object %>
   <p>
     <%= f.label :start_time %>
-    <%= f.datetime_select :start_time, { minute_step: 15 } %>
+    <%= f.datetime_select :start_time, discard_hour: true, discard_minute: true, start_year: Date.today.year %>
   </p>
   <p>
     <%= f.label :number_of_days %>
