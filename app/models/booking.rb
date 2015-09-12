@@ -5,5 +5,4 @@ class Booking < ActiveRecord::Base
   def assign_cost
   	self.car.price * self.length
   end
-
 end
