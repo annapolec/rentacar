@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
   def create
     @booking =  @car.bookings.create(booking_params)
     @booking.assign_cost
-    @booking.assign_number_of_days
+    binding.pry
     if @booking.save
       flash[:success] = "Mr/Mrs #{@booking.client} your reservation has been made. 
                         \n #{@booking.start_time} - #{@booking.end_time} cost= #{@booking.cost}"

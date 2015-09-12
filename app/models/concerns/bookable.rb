@@ -78,7 +78,7 @@ module Bookable
     start_time = validate_start_time
     length = validate_length
     if start_time && length
-      self.end_time = start_time + (length.hours - 60)
+      self.end_time = start_time + length.days
     end
   end
 

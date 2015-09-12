@@ -5,7 +5,5 @@ class Booking < ActiveRecord::Base
   def assign_cost
   	self.car.price * self.length
   end
-  def assign_number_of_days
-  	self.length *= 24
-  end
+
 end
