@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @cars = Car.paginate(page: params[:page], per_page: 6)
+    @cars = Car.paginate(page: params[:page], per_page: 5)
   end
 
   def show
