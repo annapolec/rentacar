@@ -64,13 +64,13 @@ module Bookable
 
     overlapping_bookings.delete self
     if overlapping_bookings.any?
-      errors.add(:base, 'Slot has already been booked')
+      errors.add(:start_time, 'Slot has already been booked')
     end
   end
 
   def start_date_cannot_be_in_the_past
-    if start_time && start_time < DateTime.now + (15.minutes)
-      errors.add(:start_time, 'must be at least 15 minutes from present time')
+    if start_time && start_time < Date.today
+      errors.add(:start_time, 'must be today or later')
     end
   end
 

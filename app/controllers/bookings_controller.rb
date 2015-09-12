@@ -16,13 +16,13 @@ class BookingsController < ApplicationController
     @booking =  @car.bookings.create(booking_params)
     @booking.assign_cost
     @booking.assign_number_of_days
-    binding.pry
     if @booking.save
       flash[:success] = "Mr/Mrs #{@booking.client} your reservation has been made. 
                         \n #{@booking.start_time} - #{@booking.end_time} cost= #{@booking.cost}"
       redirect_to car_path(@car)
     else
-      render 'new'
+      render 'cars/show'
+
     end
   end
 
