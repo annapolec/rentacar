@@ -1,35 +1,41 @@
 <%= form_for ([@car, @booking]) do |f| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation"> 
+      <ul>
+      <% @booking.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<% if @booking.errors.any? %>
-  <div id="error_explanation"> 
-    <ul>
-    <% @booking.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+  <div class="form-group">
+    <%= f.label :client, class: 'col-md-2 control-label' %>
+    <div class="col-md-10">    
+      <%= f.text_field :client %>
+    </div>
   </div>
-<% end %>
 
-<div class="form-group">
-	<%= f.label :start_time, class: 'col-md-2 control-label' %>
-	<div class="col-md-10">    
-    <%= f.datetime_select :start_time, discard_hour: true, discard_minute: true, 
-    											start_year: Date.today.year %>
+  <div class="form-group">
+  	<%= f.label :start_time, class: 'col-md-2 control-label' %>
+  	<div class="col-md-10">    
+      <%= f.datetime_select :start_time, discard_hour: true, discard_minute: true, 
+      											start_year: Date.today.year %>
+    </div>
   </div>
-</div>
 
-<div class="form-group">
-	<%= f.label :number_of_days, class: 'col-md-2 control-label' %>
-	<div class="col-md-10">    
-    <%= f.number_field :length, min: 1 %>
+  <div class="form-group">
+  	<%= f.label :number_of_days, class: 'col-md-2 control-label' %>
+  	<div class="col-md-10">    
+      <%= f.number_field :length, min: 1 %>
+    </div>
   </div>
-</div>
 
-<div class="form-group">
-	<div class="col-md-offset-2 col-md-10">
-  	<%= f.submit "Book it" %>
+  <div class="form-group">
+  	<div class="col-md-offset-2 col-md-10">
+    	<%= f.submit "Book it" %>
+    </div>
   </div>
-</div>
 <% end %> 
 
 
