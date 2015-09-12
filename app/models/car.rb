@@ -15,4 +15,5 @@ class Car < ActiveRecord::Base
 								"C" => 50 }
 		self.price = prices[self.category]
 	end
+end
 

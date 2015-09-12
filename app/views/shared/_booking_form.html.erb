@@ -1,14 +1,14 @@
 <%= form_for ([@car, @booking]) do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
   <p>
-    <%= f.label 'start_time', 'Start time' %>
+    <%= f.label :start_time %>
     <%= f.datetime_select :start_time, { minute_step: 15 } %>
   </p>
   <p>
-    <%= f.label 'length', 'Length of booking in hours' %>
-    <%= f.number_field 'length', min: 24 %>
+    <%= f.label :number_of_days %>
+    <%= f.number_field :length, min: 1 %>
   </p>
-  <%= f.submit 'Submit' %>
+  <%= f.submit "Book it" %>
 <% end %> 
 
 
