@@ -17,7 +17,5 @@ RSpec.feature "AddNewCars", type: :feature do
     expect( Car.first.description).to eq("Lorem Ipsum")
     expect( Car.first.category).to eq("A")
     expect( Car.first.price).to eq(100)
-
   end
-
 end
