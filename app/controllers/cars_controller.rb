@@ -41,7 +41,7 @@ class CarsController < ApplicationController
     @car.update car_params
     if @car.save
       flash[:success] = "Your car was updated succesfully"
-      redirect_to root_path
+      redirect_to cars_path
     else
       render 'edit'
     end

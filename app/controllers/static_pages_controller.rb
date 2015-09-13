@@ -3,9 +3,9 @@ class StaticPagesController < ApplicationController
 	end
 
 	def search_results
-		if params[:length].nil?
+		if params[:length].empty?
 			params[:length] = 1
-		end
+		end		
 		@booking = Booking.new(start_time: params[:start_time], length: params[:length])
 		@booking.calculate_end_time
 		@cars = Car.all
