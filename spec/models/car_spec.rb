@@ -16,4 +16,10 @@ describe Car do
 	it { should validate_length_of(:description).is_at_most(300) }
 
 	it { should have_many :bookings }
+
+	it "should assign_price correctly" do
+		car = FactoryGirl.build(:car, category: "A")
+		car.assign_price
+		car.price.should == 100
+	end
 end
