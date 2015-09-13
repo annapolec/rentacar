@@ -8,10 +8,6 @@ class BookingsController < ApplicationController
     respond_with @bookings
   end
 
-  def new
-    @booking = @car.bookings.build
-  end
-
   def create
     @booking =  @car.bookings.create(booking_params)
     @booking.assign_cost
@@ -34,10 +30,6 @@ class BookingsController < ApplicationController
     else
       render 'index'
     end
-  end
-
-  def edit
-    @booking = Booking.find(params[:id])
   end
 
   def update
