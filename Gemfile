@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'shoulda-context'
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
