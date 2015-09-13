@@ -29,11 +29,9 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
-
 gem 'date_validator'
 gem 'bookable', '~> 0.0.52'
 gem 'bootstrap-will_paginate'
-gem 'date_validator'
 gem 'bookable', '~> 0.0.52'
 
 group :doc do
@@ -44,6 +42,10 @@ end
 group :development, :test do
 	gem 'pry'
 	gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  gem 'shoulda-context'
 end
 
 # Use ActiveModel has_secure_password
