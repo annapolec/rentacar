@@ -1,0 +1,7 @@
+<%= form_tag({:action => 'search_results'}, :remote => true, :'data-update-target' => 'update-container') do %>
+	<%= date_field_tag 'start_time', Date.today(), :class => 'textinput' %>
+	<%= text_field_tag 'length', nil, :class => 'textinput', :placeholder => 'How many days' %>
+	<%= submit_tag 'Submit', :disable_with => 'Please wait...', :class => 'submit' %>
+<% end %>
+<div id="update-container">
+</div>

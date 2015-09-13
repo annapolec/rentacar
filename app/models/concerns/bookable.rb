@@ -68,6 +68,21 @@ module Bookable
     end
   end
 
+  def check_availability
+    overlapping_bookings = [ 
+      car.bookings.end_during(start_time, end_time),
+      car.bookings.start_during(start_time, end_time),
+      car.bookings.happening_during(start_time, end_time),
+      car.bookings.enveloping(start_time, end_time),
+      car.bookings.identical(start_time, end_time)
+    ].flatten
+
+    overlapping_bookings.delete self
+    if !overlapping_bookings.any?
+      car
+    end
+  end
+
   def start_date_cannot_be_in_the_past
     if start_time && start_time < Date.today
       errors.add(:start_time, 'must be today or later')
@@ -91,7 +106,17 @@ module Bookable
     :recurring => false, 
     :allDay => false
    }  
-  end  
+  end 
+  def is_valid?(car_id) 
+    overlapping_bookings = [ 
+      car.bookings.end_during(start_time, end_time),
+      car.bookings.start_during(start_time, end_time),
+      car.bookings.happening_during(start_time, end_time),
+      car.bookings.enveloping(start_time, end_time),
+      car.bookings.identical(start_time, end_time)
+    ].flatten
+
+  end
 
   private
 
