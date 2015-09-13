@@ -32,7 +32,6 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'date_validator'
 gem 'bookable', '~> 0.0.52'
 gem 'bootstrap-will_paginate'
-gem 'bookable', '~> 0.0.52'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -42,11 +41,16 @@ end
 group :development, :test do
 	gem 'pry'
 	gem 'rspec-rails', '~> 3.0'
+	gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'shoulda-context'
   gem 'shoulda-matchers'
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password

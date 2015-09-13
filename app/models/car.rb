@@ -1,5 +1,4 @@
 class Car < ActiveRecord::Base
-	has_many :rentings
 	has_many :bookings
 
 	validates :name, :description, :category, :price, presence: true
