@@ -47,6 +47,7 @@ end
 group :test do
   gem 'shoulda-context'
   gem 'shoulda-matchers'
+  gem "shoulda-kept-respond-with-content-type"
   gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
