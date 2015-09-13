@@ -38,7 +38,8 @@ class CarsController < ApplicationController
 
   def update
     @car = Car.find(params[:id])
-    @car.update car_params
+    @car.update(car_params)
+    @car.assign_price
     if @car.save
       flash[:success] = "Your car was updated succesfully"
       redirect_to cars_path
@@ -48,9 +49,7 @@ class CarsController < ApplicationController
   end
 
   private
-
     def car_params
       params.require(:car).permit(:name, :description, :category, :delete)
     end
-
 end

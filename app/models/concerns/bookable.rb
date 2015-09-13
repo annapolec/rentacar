@@ -64,7 +64,7 @@ module Bookable
 
     overlapping_bookings.delete self
     if overlapping_bookings.any?
-      errors.add(:start_time, 'Slot has already been booked')
+      errors.add(:start_time, 'Slot has already been booked.')
     end
   end
 
