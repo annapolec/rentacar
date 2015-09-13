@@ -1,10 +1,11 @@
 class StaticPagesController < ApplicationController
-	def home
-		
+	def home		
 	end
 
 	def search_results
-
+		if params[:length].nil?
+			params[:length] = 1
+		end
 		@booking = Booking.new(start_time: params[:start_time], length: params[:length])
 		@booking.calculate_end_time
 		@cars = Car.all

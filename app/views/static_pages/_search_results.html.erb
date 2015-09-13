@@ -1,13 +1,13 @@
 <h1>Available cars</h1>
 From <%= @booking.start_time %> till <%= @booking.end_time %>
 <% @cars.each do |car| %>
-			<% @booking.car = car %>
-			<% if available_car = @booking.check_availability %>
-				<h2><%= link_to available_car.name, car_path(available_car) %></h2>
-				<ul class="listing">
-					<li>category: <%= available_car.category %></li>
-					<li>price per day: <%= available_car.price %></li>
-					<li><%= available_car.description %></li>	
-				</ul>
-			<% end %>
+	<% @booking.car = car %>
+	<% if available_car = @booking.check_availability %>
+		<h2><%= link_to available_car.name, car_path(available_car) %></h2>
+		<ul class="listing">
+			<li>category: <%= available_car.category %></li>
+			<li>price per day: <%= available_car.price %></li>
+			<li><%= available_car.description %></li>	
+		</ul>
+	<% end %>
 <% end %>

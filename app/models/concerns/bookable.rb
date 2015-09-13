@@ -107,16 +107,7 @@ module Bookable
     :allDay => false
    }  
   end 
-  def is_valid?(car_id) 
-    overlapping_bookings = [ 
-      car.bookings.end_during(start_time, end_time),
-      car.bookings.start_during(start_time, end_time),
-      car.bookings.happening_during(start_time, end_time),
-      car.bookings.enveloping(start_time, end_time),
-      car.bookings.identical(start_time, end_time)
-    ].flatten
 
-  end
 
   private
 

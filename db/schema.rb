@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912191250) do
+ActiveRecord::Schema.define(version: 20150913150006) do
 
   create_table "bookings", force: true do |t|
     t.string  "client"
     t.date    "start_time"
     t.date    "end_time"
-    t.integer "length"
+    t.integer "length",     default: 1
     t.integer "cost"
     t.integer "car_id"
   end
