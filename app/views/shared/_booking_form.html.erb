@@ -19,8 +19,7 @@
   <div class="form-group">
   	<%= f.label :start_time, class: 'col-md-2 control-label' %>
   	<div class="col-md-10">    
-      <%= f.datetime_select :start_time, discard_hour: true, discard_minute: true, 
-      											start_year: Date.today.year %>
+      <%= f.date_select :start_time, start_year: Date.today.year %>
     </div>
   </div>
 

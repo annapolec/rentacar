@@ -12,7 +12,11 @@ var calendar = function(){
     // page is now ready, initialize the calendar...
 
     var current_resource = function(){
-    	return window.location.href.match(/cars\/(\d+)/[1]);
+    	var matchedResource = window.location.href.match(/cars\/(\d+)/);
+
+      if(matchedResource != null) {
+        return matchedResource[1];
+      }      
     };
 
     var today_or_later = function(){
