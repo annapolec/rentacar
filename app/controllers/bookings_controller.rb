@@ -32,23 +32,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
-    @booking = Booking.find(params[:id])
-    # @booking.car = @car
-
-    if @booking.update(params[:booking].permit(:car_id, :start_time, :length))
-      flash[:notice] = 'Your booking was updated succesfully'
-
-      if request.xhr?
-        render json: {status: :success}.to_json
-      else
-        redirect_to car_bookings_path(@car)
-      end
-    else
-      render 'edit'
-    end
-  end
-
   private
 
   def booking_params
