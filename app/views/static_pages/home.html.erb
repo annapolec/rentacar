@@ -7,7 +7,7 @@
 	<%= date_field_tag 'start_time', Date.today(), class: 'textinput', min: Date.today() %>
 	<%= label_tag 'Number of days' %>
 	<%= number_field_tag 'length', nil, class: 'textinput', min: 1 %>
-	<%= submit_tag 'Submit', disable_with: 'Please wait...', class: 'submit' %>
+	<%= submit_tag 'Check it', disable_with: 'Please wait...', class: 'submit' %>
 <% end %>
 
 <div id="update-container">
